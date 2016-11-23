@@ -29,8 +29,9 @@ class TaigaServiceProvider extends ServiceProvider
         $this->app->singleton('taiga', function($app) {
             $base_url = config('taiga.base_url');
             $auth_token = config('taiga.auth_token');
+            $language = config('taiga.language');
 
-            return new Taiga($base_url, $auth_token);
+            return new Taiga($base_url, $auth_token, $language);
         });
     }
 }
