@@ -26,7 +26,7 @@ You can publish configuration file:
 ```sh
 php artisan vendor:publish --provider="TZK\TaigaLaravel\TaigaServiceProvider"
 ```
-> **Note**: It is not necessary, since all `api`, `token` and `language` can be set using **.env** file
+> **Note**: It is not necessary, since `api`, `token` and `language` can be set using **.env** file
 
 Add following keys to your **.env.example** file (and if production **.env** file as well)
 
