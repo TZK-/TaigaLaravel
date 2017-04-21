@@ -18,16 +18,23 @@ TZK\TaigaLaravel\TaigaServiceProvider::class,
 If you want to use the facade you can also add this to your facades array in **config/app.php**:
 
 ```php
-TZK\TaigaLaravel\Facade::class,
+'Taiga' => TZK\TaigaLaravel\Facades\Taiga::class,
 ```
 
-Then, you'll need to publish the configuration to set your auth token (and maybe to change the API url if you host the service yourself, or the language to use):
+You can publish configuration file:
 
 ```sh
 php artisan vendor:publish --provider="TZK\TaigaLaravel\TaigaServiceProvider"
 ```
+> **Note**: It is not necessary, since all `api`, `token` and `language` can be set using **.env** file
 
-This command will generate a config file in **config/taiga.php**.
+Add following keys to your **.env.example** file (and if production **.env** file as well)
+
+```
+TAIGA_API=https://api.taiga.io/api/v1/
+TAIGA_TOKEN=null
+TAIGA_LANGUAGE=en
+```
 
 # Usage
 
@@ -39,6 +46,12 @@ $issues = Taiga::issues()->getList(['project' => $projectId]);
 Taiga::issues()->create(['project' => $projectId, 'subject' => 'My super issue']);
 ```
 
+Or resolve singleton using `$taiga = resolve(\TZK\Taiga\Taiga::class)`
+
+```php
+$taiga = resolve(\TZK\Taiga\Taiga::class)->issues()...
+```
+
 # Documentation
 
-There is more informations about the package in the [TaigaPHP](https://github.com/TZK-/TaigaPHP) repository... just take a look.
+There is more information about the package in the [TaigaPHP](https://github.com/TZK-/TaigaPHP) repository.
