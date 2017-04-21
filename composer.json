@@ -1,21 +1,20 @@
 {
     "name": "tzk/taiga-laravel",
-    "type": "library",
+    "type": "package",
     "description": "A Laravel package for the TaigaPHP library",
     "keywords": [
         "tzk",
-        "taiga-laravel"
+        "taiga-laravel",
+        "laravel"
     ],
     "license": "MIT",
     "require": {
-        "illuminate/support": "~5.1",
-        "php" : "~5.5|~7.0",
-        "tzk/taiga-php": "~1.0.1"
+        "php": "~5.5|~7.0|7.1.*",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*",
+        "tzk/taiga-php": "1.0.*"
     },
-    "require-dev": {
-        "phpunit/phpunit" : "~4.0||~5.0",
-        "scrutinizer/ocular": "~1.1",
-        "squizlabs/php_codesniffer": "~2.3"
+    "suggest": {
+        "kyslik/django-signer": "Allows creating auth tokens for Taiga (secret and user_id must be known)."
     },
     "autoload": {
         "psr-4": {
@@ -27,13 +26,11 @@
             "TZK\\TaigaLaravel\\": "tests"
         }
     },
-    "scripts": {
-        "test": "phpunit",
-        "format": "phpcbf --standard=psr2 src/"
-    },
     "extra": {
-       "branch-alias": {
-           "dev-master": "1.0.0-dev"
-       }
-    }
+        "branch-alias": {
+            "dev-master": "1.0.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
