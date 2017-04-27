@@ -30,7 +30,7 @@ class TaigaServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/taiga.php', 'taiga');
 
-        $this->app->singleton(Taiga::class, function ($app) {
+        $this->app->bind(Taiga::class, function ($app) {
             $config = $app->config['taiga'];
 
             return new Taiga($config['api'], $config['token'], $config['language']);
