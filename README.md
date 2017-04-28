@@ -21,14 +21,12 @@ If you want to use the facade you can also add this to your facades array in **c
 'Taiga' => TZK\TaigaLaravel\Facades\Taiga::class,
 ```
 
-You can publish configuration file:
+You can publish configuration file if you want to provide extra HTTP header configurations:
 
 ```sh
 php artisan vendor:publish --provider="TZK\TaigaLaravel\TaigaServiceProvider"
 ```
-> **Note**: It is not necessary, since `api`, `token` and `language` can be set using **.env** file
-
-Add following keys to your **.env.example** file (and if production **.env** file as well)
+> **Note**: It is not necessary if you only want basic configuration, since `api`, `token` and `language` can be set using your **.env** file by adding the following keys.
 
 ```
 TAIGA_API=https://api.taiga.io/api/v1/
@@ -38,18 +36,23 @@ TAIGA_LANGUAGE=en
 
 # Usage
 
-You can access to Taiga thank to the facade:
+You can get a new Taiga thanks to the facade:
 
 ```php
-$issues = Taiga::issues()->getList(['project' => $projectId]);
+$taiga = Taiga::newInstance();
+$issues = $taiga->issues()->getList(['project' => $projectId]);
 
-Taiga::issues()->create(['project' => $projectId, 'subject' => 'My super issue']);
+// or
+
+// If you do not use Taiga::newInstance(), it will create automatically a new one
+// each time you call a method via the facade.
+$issues = Taiga::issues()->getList(['project' => $projectId]);
 ```
 
-Or resolve singleton using `$taiga = resolve(\TZK\Taiga\Taiga::class)`
+Or get an instance from the IoC container
 
 ```php
-$taiga = resolve(\TZK\Taiga\Taiga::class)->issues()...
+$taiga = app(\TZK\Taiga\Taiga::class)...
 ```
 
 # Documentation
