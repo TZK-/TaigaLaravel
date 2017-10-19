@@ -1,6 +1,6 @@
 # Taiga Laravel
 
-TaigaLaravel is a package used to handle the [TaigaPHP](https://github.com/TZK-/TaigaPHP) library with **Laravel 5.x** (atm, Laravel 4 is not supported).
+TaigaLaravel is a package used to handle the [TaigaPHP](https://github.com/TZK-/TaigaPHP) library with **Laravel 5.x** (Laravel 4 is not supported).
 
 # Installation
 
@@ -8,6 +8,9 @@ Require this package with composer:
 ```sh
 composer install tzk/taiga-laravel
 ```
+
+***NB*. *You can skip adding the service provider & the facade if you use the Package Auto-discovery (>=Laravel 5.5).***
+
 
 After updating composer, add the **TaigaServiceProvider** to the providers array in the **config/app.php** file:
 
@@ -58,3 +61,4 @@ $taiga = app(\TZK\Taiga\Taiga::class)...
 # Documentation
 
 There is more information about the package in the [TaigaPHP](https://github.com/TZK-/TaigaPHP) repository.
+
