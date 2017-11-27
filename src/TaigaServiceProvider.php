@@ -33,7 +33,7 @@ class TaigaServiceProvider extends ServiceProvider
         $this->app->bind(Taiga::class, function ($app) {
             $config = $app->config['taiga'];
 
-            return new Taiga($config['api'], $config['token'], $config['headers']);
+            return new Taiga(new CurlRequest(), $config['api'], $config['token'], $config['headers']);
         });
     }
 }
