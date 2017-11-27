@@ -3,6 +3,7 @@
 namespace TZK\TaigaLaravel;
 
 use Illuminate\Support\ServiceProvider;
+use TZK\Taiga\Requests\CurlRequest;
 use TZK\Taiga\Taiga;
 
 class TaigaServiceProvider extends ServiceProvider
