@@ -12,7 +12,7 @@
     "require": {
         "php": "~5.5|~7.0",
         "illuminate/support": "~5.1",
-        "tzk/taiga-php": "^2.0.2"
+        "tzk/taiga-php": "^2.1.0"
     },
     "suggest": {
         "kyslik/django-signer": "Allows creating auth tokens for Taiga (secret and user_id must be known)."
